@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.flex.h-screen.bg-gray-100.dark\:bg-gray-900 {
+    background: #2C3333;
+}
+
+.m-auto.bg-white.dark\:bg-gray-800.shadow-2xl.rounded.text-black.w-9\/12.md\:w-7\/12.lg\:w-5\/12.p-10.h-auto.content-center {
+    background: dimgrey;
+}
+
+
+h1.font-semibold.text-center.mt-1\.5.text-lg.lg\:text-2xl.text-black.dark\:text-white {
+    color: yellow;
+    text-shadow: 2px 2px 3px black;
+}
