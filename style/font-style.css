@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'estedad';
+    src: url('fonts/Estedad-Medium.ttf') format('truetype');
+}
+
+
+*{
+    font-family: 'estedad';
+}
