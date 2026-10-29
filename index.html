@@ -1,255 +1,546 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="رزومه حرفه‌ای سعید جدی، توسعه‌دهنده نرم‌افزار با تمرکز بر Python، Django، Django REST Framework و Flutter.">
+  <meta name="theme-color" content="#101b35">
+  <title>سعید جدی | توسعه‌دهنده نرم‌افزار</title>
+  <style>
+    :root {
+      --navy: #101b35;
+      --navy-2: #18294d;
+      --blue: #356df3;
+      --blue-light: #eaf0ff;
+      --ink: #1d2940;
+      --body: #48566d;
+      --muted: #718096;
+      --line: #e2e8f0;
+      --paper: #ffffff;
+      --canvas: #f2f5fa;
+      --green: #167b62;
+      --radius: 20px;
+      --shadow: 0 24px 70px rgba(16, 27, 53, .12);
+    }
 
-<meta charset="UTF-8">
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 10% 5%, rgba(53,109,243,.09), transparent 25rem),
+        var(--canvas);
+      color: var(--body);
+      font-family: Tahoma, "Segoe UI", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 2;
+      -webkit-font-smoothing: antialiased;
+    }
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid #94b4ff;
+      outline-offset: 3px;
+    }
 
+    .page-shell { max-width: 1120px; margin: 0 auto; padding: 34px 22px 50px; }
+    .toolbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; margin-bottom: 18px;
+    }
+    .toolbar-note { color: var(--muted); font-size: 12px; }
+    .print-button {
+      border: 0; border-radius: 12px; padding: 12px 18px;
+      background: var(--blue); color: #fff; font: inherit; font-weight: 700;
+      cursor: pointer; box-shadow: 0 8px 20px rgba(53,109,243,.22);
+      transition: transform .18s ease, background .18s ease;
+    }
+    .print-button:hover { background: #2459d6; transform: translateY(-1px); }
 
-<title>
-Saeid Jeddi | Django & Flutter Developer
-</title>
+    .resume {
+      background: var(--paper); border: 1px solid rgba(226,232,240,.9);
+      border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+    }
 
+    .hero {
+      position: relative; overflow: hidden; isolation: isolate;
+      padding: 48px 52px 40px; color: #fff;
+      background: linear-gradient(125deg, var(--navy) 0%, #192d55 58%, #234b9e 100%);
+    }
+    .hero::before, .hero::after {
+      content: ""; position: absolute; z-index: -1; border: 1px solid rgba(255,255,255,.13);
+      border-radius: 50%; pointer-events: none;
+    }
+    .hero::before { width: 390px; height: 390px; left: -100px; top: -245px; }
+    .hero::after { width: 250px; height: 250px; left: 0; top: -165px; }
+    .hero-topline {
+      display: flex; align-items: center; gap: 9px; margin-bottom: 16px;
+      color: #c6d6ff; font-size: 11px; font-weight: 700; letter-spacing: .5px;
+    }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #72e0bd; display: inline-block; }
+    h1 { color: #fff; margin: 0; font-size: clamp(32px, 4vw, 46px); line-height: 1.45; letter-spacing: -.7px; }
+    .hero-title { margin: 5px 0 20px; color: #c7d8ff; font-size: 18px; font-weight: 700; }
+    .hero-summary { max-width: 780px; margin: 0; color: #e1e9fa; font-size: 14px; line-height: 2.15; }
+    .contact-grid {
+      display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 26px;
+      padding-top: 22px; border-top: 1px solid rgba(255,255,255,.16);
+    }
+    .contact-item { display: flex; align-items: center; gap: 8px; min-width: 0; color: #d9e4ff; font-size: 12px; }
+    .contact-item .label { color: #aebfe4; }
+    .contact-item a { color: #fff; direction: ltr; unicode-bidi: isolate; overflow-wrap: anywhere; }
+    .contact-symbol {
+      display: inline-grid; place-items: center; width: 28px; height: 28px; flex: 0 0 28px;
+      border-radius: 8px; background: rgba(255,255,255,.1); color: #fff; font-size: 13px;
+    }
 
-<meta name="description"
-content="Saeid Jeddi is a Python Backend Developer specializing in Django, Django REST Framework, Flutter, REST APIs, scalable backend systems, and mobile applications.">
+    .content-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; direction: rtl; }
+    .main-column { padding: 38px 42px 40px; min-width: 0; }
+    .side-column {
+      padding: 38px 28px 40px; min-width: 0; background: #f8faff;
+      border-left: 1px solid var(--line);
+    }
 
+    .section { margin-bottom: 34px; break-inside: avoid; }
+    .section:last-child { margin-bottom: 0; }
+    .section-heading {
+      display: flex; align-items: center; gap: 12px; margin: 0 0 20px;
+      color: var(--navy); font-size: 18px; line-height: 1.6;
+    }
+    .heading-icon {
+      display: inline-grid; place-items: center; flex: 0 0 38px; width: 38px; height: 38px;
+      color: var(--blue); background: var(--blue-light); border-radius: 12px; font-size: 17px;
+    }
+    .section-heading small {
+      display: block; margin-top: 2px; color: var(--muted); font-size: 10px; font-weight: 400;
+    }
+    .section-intro { margin: -5px 0 18px; color: var(--body); }
 
-<meta name="keywords"
-content="
-Saeid Jeddi,
-سعید جدی,
-SaeidJeddi,
-Python Developer,
-Django Developer,
-Django REST Framework,
-Flutter Developer,
-Backend Developer,
-REST API,
-FastAPI,
-PostgreSQL,
-Redis,
-Docker,
-Linux
-">
+    .timeline { position: relative; margin-right: 7px; padding-right: 23px; border-right: 2px solid #dce5f4; }
+    .timeline-item { position: relative; padding: 0 0 27px; break-inside: avoid; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: ""; position: absolute; right: -31px; top: 8px; width: 12px; height: 12px;
+      border: 3px solid white; border-radius: 50%; background: var(--blue);
+      box-shadow: 0 0 0 2px #cbd9fb;
+    }
+    .item-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .item-heading h3 { margin: 0; color: var(--ink); font-size: 15px; line-height: 1.8; }
+    .date-pill {
+      flex: 0 0 auto; border-radius: 8px; padding: 3px 9px; color: #3659a5;
+      background: #edf2ff; font-size: 10px; font-weight: 700; line-height: 1.9;
+    }
+    .item-meta { margin: 4px 0 11px; color: var(--muted); font-size: 12px; }
+    .timeline-item p { margin: 8px 0; }
+    .detail-list { margin: 9px 0 0; padding-right: 19px; }
+    .detail-list li { padding-right: 3px; margin: 0 0 7px; }
+    .detail-list li::marker { color: var(--blue); }
 
+    .project-card {
+      padding: 18px 19px 17px; margin-bottom: 13px; border: 1px solid var(--line);
+      border-radius: 15px; background: #fff; break-inside: avoid;
+      transition: border-color .18s ease, transform .18s ease;
+    }
+    .project-card:last-child { margin-bottom: 0; }
+    .project-card:hover { border-color: #b9cbff; transform: translateY(-1px); }
+    .project-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+    .project-card h3 { margin: 0; color: var(--ink); font-size: 14px; direction: ltr; text-align: right; }
+    .project-type { display: inline-block; margin-top: 5px; color: var(--muted); font-size: 10px; }
+    .project-card p { margin: 10px 0 12px; font-size: 12px; }
+    .project-link { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; }
+    .project-link .arrow { direction: ltr; }
 
-<meta name="author" content="Saeid Jeddi">
+    .skill-block { margin-bottom: 20px; }
+    .skill-block:last-child { margin-bottom: 0; }
+    .skill-block h3 { margin: 0 0 9px; color: var(--ink); font-size: 12px; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 7px; }
+    .tag {
+      display: inline-block; padding: 4px 9px; border-radius: 8px;
+      background: #edf2ff; border: 1px solid #e1e9ff; color: #294d9c;
+      font-size: 10px; line-height: 1.8; direction: ltr; unicode-bidi: isolate;
+    }
+    .side-divider { height: 1px; background: var(--line); margin: 25px 0; }
+    .facts { margin: 0; }
+    .fact { margin-bottom: 15px; }
+    .fact:last-child { margin-bottom: 0; }
+    .fact dt { margin-bottom: 3px; color: var(--muted); font-size: 10px; }
+    .fact dd { margin: 0; color: var(--ink); font-size: 12px; font-weight: 700; }
+    .fact dd.normal { font-weight: 400; color: var(--body); }
+    .link-list { display: grid; gap: 10px; }
+    .link-card {
+      display: flex; align-items: center; gap: 10px; padding: 10px;
+      border: 1px solid var(--line); border-radius: 11px; background: #fff;
+    }
+    .link-mark {
+      display: grid; place-items: center; flex: 0 0 31px; height: 31px; border-radius: 9px;
+      background: var(--navy); color: #fff; font-size: 10px; font-weight: 700;
+    }
+    .link-card strong { display: block; color: var(--ink); font-size: 11px; line-height: 1.6; }
+    .link-card small { display: block; color: var(--muted); font-size: 9px; direction: ltr; text-align: right; overflow-wrap: anywhere; }
+    .link-card a { display: block; min-width: 0; }
+    .footer {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      padding: 17px 42px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px;
+    }
+    .footer strong { color: var(--navy); }
 
+    @media (max-width: 850px) {
+      .page-shell { padding: 20px 12px 32px; }
+      .hero { padding: 36px 30px 30px; }
+      .content-grid { grid-template-columns: minmax(0, 1fr) 260px; }
+      .main-column { padding: 30px 28px; }
+      .side-column { padding: 30px 21px; }
+      .footer { padding-right: 28px; padding-left: 28px; }
+    }
+    @media (max-width: 680px) {
+      body { font-size: 13px; }
+      .page-shell { padding: 10px 7px 24px; }
+      .toolbar { align-items: flex-start; flex-direction: column; }
+      .toolbar-note { order: 2; }
+      .print-button { width: 100%; }
+      .resume { border-radius: 15px; }
+      .hero { padding: 30px 22px 26px; }
+      h1 { font-size: 32px; }
+      .hero-title { font-size: 15px; }
+      .hero-summary { font-size: 13px; }
+      .contact-grid { display: grid; gap: 10px; }
+      .content-grid { grid-template-columns: 1fr; }
+      .side-column { order: 1; border-left: 0; border-bottom: 1px solid var(--line); padding: 27px 22px; }
+      .main-column { order: 2; padding: 29px 22px; }
+      .section { margin-bottom: 29px; }
+      .section-heading { font-size: 16px; }
+      .item-heading { flex-direction: column; gap: 3px; }
+      .date-pill { align-self: flex-start; }
+      .footer { padding: 15px 22px; flex-direction: column; align-items: flex-start; }
+    }
 
-<meta name="robots" content="index, follow">
-
-
-<link rel="canonical" href="https://saeidjeddi.github.io/">
-
-
-<!-- Open Graph (برای نمایش بهتر در شبکه‌های اجتماعی) -->
-
-<meta property="og:title"
-content="Saeid Jeddi | Django & Flutter Developer">
-
-
-<meta property="og:description"
-content="Backend Developer building scalable systems with Django, REST APIs and Flutter applications.">
-
-
-<meta property="og:type"
-content="website">
-
-
-<meta property="og:url"
-content="https://saeidjeddi.github.io/">
-
-
-<meta property="og:image"
-content="https://saeidjeddi.github.io/profile.png">
-
-
-<!-- Twitter / X Card -->
-
-<meta name="twitter:card"
-content="summary_large_image">
-
-
-<meta name="twitter:title"
-content="Saeid Jeddi | Django & Flutter Developer">
-
-
-<meta name="twitter:description"
-content="Python Backend Developer specializing in Django, DRF and Flutter.">
-
-
-<meta name="twitter:image"
-content="https://saeidjeddi.github.io/profile.png">
-
-
-<link rel="stylesheet" href="style.css">
-
-    <title>Saeid Jeddi | Django & Flutter Developer</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    @page { size: A4; margin: 11mm; }
+    @media print {
+      :root { --canvas: #fff; }
+      html, body { background: #fff !important; }
+      body { margin: 0; padding: 0; font-size: 9pt; line-height: 1.75; color: #344054; }
+      .page-shell { max-width: none; margin: 0; padding: 0; }
+      .toolbar { display: none !important; }
+      .resume { border: 0; border-radius: 0; box-shadow: none; overflow: visible; }
+      .hero {
+        padding: 25px 27px 22px;
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+      }
+      h1 { font-size: 27pt; }
+      .hero-title { font-size: 12pt; margin-bottom: 10px; }
+      .hero-summary { font-size: 9pt; }
+      .contact-grid { gap: 6px 15px; margin-top: 15px; padding-top: 13px; }
+      .contact-item { font-size: 8pt; }
+      .content-grid { grid-template-columns: minmax(0, 1fr) 235px; }
+      .main-column { padding: 24px 25px 24px; }
+      .side-column {
+        padding: 24px 18px;
+        background: #f8faff !important;
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+      }
+      .section { margin-bottom: 22px; }
+      .section-heading { margin-bottom: 13px; font-size: 13pt; }
+      .heading-icon { width: 30px; height: 30px; flex-basis: 30px; }
+      .timeline-item { padding-bottom: 17px; }
+      .timeline-item p, .detail-list li { font-size: 8.5pt; }
+      .item-heading h3 { font-size: 10pt; }
+      .item-meta { font-size: 8pt; margin-bottom: 6px; }
+      .project-card { padding: 12px; margin-bottom: 8px; }
+      .project-card p { font-size: 8pt; margin: 6px 0 8px; }
+      .project-card h3 { font-size: 9.5pt; }
+      .tag { font-size: 7.5pt; padding: 2px 6px; }
+      .skill-block { margin-bottom: 14px; }
+      .side-divider { margin: 17px 0; }
+      .link-list { gap: 6px; }
+      .link-card { padding: 7px; }
+      .link-card strong { font-size: 8pt; }
+      .link-card small { font-size: 6.8pt; }
+      .footer { padding: 10px 25px; font-size: 8pt; }
+      a { color: inherit; text-decoration: none; }
+      .section, .timeline-item, .project-card, .link-card { break-inside: avoid; }
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
 </head>
-
 <body>
-
-<header>
-
-    <div class="terminal">
-        <div class="dots">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <p>
-            saeid@developer:~$ whoami
-        </p>
-
-        <h1>
-            Hi 👋, I'm Saeid Jeddi
-        </h1>
-
-        <h2>
-            Django | Flutter Developer
-        </h2>
-
-        <p class="description">
-            Building scalable web services, REST APIs, and mobile applications
-            with clean architecture, modern technologies, and performance-focused solutions.
-        </p>
-
+  <div class="page-shell">
+    <div class="toolbar" aria-label="ابزارهای رزومه">
+      <span class="toolbar-note">رزومه آنلاین فارسی · مناسب نمایش در وب و چاپ روی کاغذ A4</span>
+      <button class="print-button" type="button" onclick="window.print()">چاپ رزومه / ذخیره به‌صورت PDF</button>
     </div>
 
-</header>
+    <article class="resume">
+      <header class="hero">
+        <div class="hero-topline"><span class="status-dot" aria-hidden="true"></span> رزومه تخصصی توسعه نرم‌افزار</div>
+        <h1>سعید جدی</h1>
+        <p class="hero-title">توسعه‌دهنده نرم‌افزار | Python، Django، DRF و Flutter</p>
+        <p class="hero-summary">
+          توسعه‌دهنده نرم‌افزار با تجربه حرفه‌ای در توسعه بک‌اند با Django و Django REST Framework،
+          پیاده‌سازی APIهای مبتنی بر REST، گردآوری و پردازش اطلاعات وب و مدیریت دسترسی کاربران.
+          در تجربه کاری خود، روی ابزارهای پایش وضعیت فروشگاه‌ها، ثبت عملیات کاربران و ارسال گزارش به تلگرام
+          کار کرده‌ام. همچنین با Flutter در حوزه توسعه اپلیکیشن موبایل فعالیت می‌کنم و به ساخت راهکارهای
+          نرم‌افزاری کاربردی، قابل نگهداری و متناسب با نیاز واقعی محصول علاقه‌مندم.
+        </p>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <span class="contact-symbol" aria-hidden="true">@</span>
+            <span class="label">ایمیل</span>
+            <a href="mailto:saeedjeddidev@gmail.com">saeedjeddidev@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-symbol" aria-hidden="true">GH</span>
+            <span class="label">گیت‌هاب</span>
+            <a href="https://github.com/saeidjeddi" target="_blank" rel="noopener noreferrer">github.com/saeidjeddi</a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-symbol" aria-hidden="true">⌖</span>
+            <span class="label">محل سکونت</span>
+            <span>اردبیل · آمادگی حضور در تهران</span>
+          </div>
+        </div>
+      </header>
 
+      <div class="content-grid">
+        <main class="main-column">
+          <section class="section" aria-labelledby="experience-heading">
+            <h2 class="section-heading" id="experience-heading">
+              <span class="heading-icon" aria-hidden="true">▤</span>
+              <span>سوابق کاری<small>تجربه حرفه‌ای و مسئولیت‌ها</small></span>
+            </h2>
 
-<section>
+            <div class="timeline">
+              <article class="timeline-item">
+                <div class="item-heading">
+                  <h3>توسعه‌دهنده بک‌اند Django</h3>
+                  <span class="date-pill">۱۴۰۳ تا ۱۴۰۵</span>
+                </div>
+                <p class="item-meta">فناوران نصیر سهند (Mealzo) · تیم تحقیق و توسعه · حضوری، تبریز</p>
+                <p>
+                  در تیم تحقیق و توسعه، روی قابلیت‌های بک‌اند و ابزارهای داخلی مرتبط با جمع‌آوری اطلاعات،
+                  مدیریت عملیات کاربران و پایش وضعیت فروشگاه‌ها کار کردم. مسئولیت‌های اصلی شامل موارد زیر بود:
+                </p>
+                <ul class="detail-list">
+                  <li>
+                    <strong>جمع‌آوری و پایش اطلاعات فروشگاه‌ها:</strong>
+                    توسعه اسکریپت‌های وب‌اسکرپینگ برای بررسی دوره‌ای، به‌صورت ساعتی، وضعیت باز یا بسته بودن
+                    فروشگاه‌های رقیبِ به‌اشتراک‌گذاشته‌شده و ذخیره وضعیت‌های به‌دست‌آمده در پایگاه داده.
+                  </li>
+                  <li>
+                    <strong>توسعه API برای عملیات مرتبط با Google Business:</strong>
+                    پیاده‌سازی API با Django REST Framework برای پشتیبانی از عملیات مربوط به Google Business
+                    و ثبت اقدامات انجام‌شده توسط کاربران در پایگاه داده.
+                  </li>
+                  <li>
+                    <strong>ثبت و گزارش رویدادها:</strong>
+                    ارسال گزارش اقدامات و تغییرات کاربران به کانال تلگرام، در کنار ثبت اطلاعات مرتبط در
+                    پایگاه داده، برای فراهم‌کردن امکان پیگیری عملیات انجام‌شده.
+                  </li>
+                  <li>
+                    <strong>مدیریت مجوزها و سطح دسترسی:</strong>
+                    پیاده‌سازی کنترل دسترسی کاربران و اعمال مجوزهای متناسب با سطح دسترسی آن‌ها در قابلیت‌های سیستم.
+                  </li>
+                </ul>
+              </article>
+            </div>
+          </section>
 
-<h2 class="title">
-    👨‍💻 About Me
-</h2>
+          <section class="section" aria-labelledby="projects-heading">
+            <h2 class="section-heading" id="projects-heading">
+              <span class="heading-icon" aria-hidden="true">⌘</span>
+              <span>پروژه‌های منتخب<small>مخازن عمومی و کدهای قابل بررسی</small></span>
+            </h2>
+            <p class="section-intro">
+              برای مشاهده پیاده‌سازی‌ها و جزئیات فنی هر پروژه، از پیوند مستقیم مخزن آن استفاده کنید.
+              توضیحات زیر عمداً به اطلاعات تأییدشده محدود شده‌اند و قابلیت‌های بررسی‌نشده‌ای به پروژه‌ها نسبت داده نشده است.
+            </p>
 
+            <article class="project-card">
+              <div class="project-top">
+                <div>
+                  <h3>VeloShop Web</h3>
+                  <span class="project-type">پروژه وب · مخزن GitHub</span>
+                </div>
+                <span class="date-pill">GitHub</span>
+              </div>
+              <p>
+                پروژه وب VeloShop که کد منبع آن در GitHub منتشر شده است. برای بررسی ساختار پروژه،
+                فناوری‌های استفاده‌شده و قابلیت‌های پیاده‌سازی‌شده، به فایل‌ها و مستندات موجود در مخزن مراجعه کنید.
+              </p>
+              <a class="project-link" href="https://github.com/saeidjeddi/VeloShop-web" target="_blank" rel="noopener noreferrer">
+                مشاهده مخزن پروژه <span class="arrow" aria-hidden="true">↗</span>
+              </a>
+            </article>
 
-<div class="card">
+            <article class="project-card">
+              <div class="project-top">
+                <div>
+                  <h3>VeloShop Platform</h3>
+                  <span class="project-type">پروژه نرم‌افزاری · مخزن GitHub</span>
+                </div>
+                <span class="date-pill">GitHub</span>
+              </div>
+              <p>
+                پروژه VeloShop Platform با مخزن عمومی در GitHub. جزئیات معماری، اجزای فنی و امکانات پروژه
+                را می‌توان از روی کد و مستندات خود مخزن بررسی کرد.
+              </p>
+              <a class="project-link" href="https://github.com/saeidjeddi/VeloShop-platform" target="_blank" rel="noopener noreferrer">
+                مشاهده مخزن پروژه <span class="arrow" aria-hidden="true">↗</span>
+              </a>
+            </article>
 
-<ul>
+            <article class="project-card">
+              <div class="project-top">
+                <div>
+                  <h3>Didar Movie Backend</h3>
+                  <span class="project-type">پروژه بک‌اند · مخزن GitHub</span>
+                </div>
+                <span class="date-pill">GitHub</span>
+              </div>
+              <p>
+                پروژه بک‌اند Didar Movie که سورس کد آن در GitHub در دسترس است. برای مشاهده جزئیات پیاده‌سازی
+                و محدوده امکانات، مخزن پروژه را بررسی کنید.
+              </p>
+              <a class="project-link" href="https://github.com/saeidjeddi/didar-movie-backend" target="_blank" rel="noopener noreferrer">
+                مشاهده مخزن پروژه <span class="arrow" aria-hidden="true">↗</span>
+              </a>
+            </article>
+          </section>
 
-<li>
-🔭 Building backend systems using
-<strong>Django & Django REST Framework</strong>
-</li>
+          <section class="section" aria-labelledby="education-heading">
+            <h2 class="section-heading" id="education-heading">
+              <span class="heading-icon" aria-hidden="true">▥</span>
+              <span>تحصیلات<small>زمینه تحصیلی</small></span>
+            </h2>
+            <div class="timeline">
+              <article class="timeline-item">
+                <div class="item-heading">
+                  <h3>مهندسی تکنولوژی نرم‌افزار</h3>
+                </div>
+                <p class="item-meta">رشته تحصیلی</p>
+                <p>
+                  زمینه تحصیلی مرتبط با مهندسی نرم‌افزار. نام مؤسسه آموزشی و سال فارغ‌التحصیلی در این نسخه درج نشده،
+                  زیرا این اطلاعات هنوز تأیید نشده‌اند.
+                </p>
+              </article>
+            </div>
+          </section>
+        </main>
 
+        <aside class="side-column">
+          <section class="section" aria-labelledby="skills-heading">
+            <h2 class="section-heading" id="skills-heading">
+              <span class="heading-icon" aria-hidden="true">⌘</span>
+              <span>مهارت‌های فنی<small>بر اساس مهارت‌های اعلام‌شده</small></span>
+            </h2>
 
-<li>
-📱 Developing cross-platform applications with
-<strong>Flutter</strong>
-</li>
+            <div class="skill-block">
+              <h3>زبان برنامه‌نویسی</h3>
+              <div class="tag-list"><span class="tag">Python</span></div>
+            </div>
+            <div class="skill-block">
+              <h3>بک‌اند و توسعه API</h3>
+              <div class="tag-list">
+                <span class="tag">Django</span><span class="tag">Django REST Framework</span>
+                <span class="tag">REST API</span>
+              </div>
+            </div>
+            <div class="skill-block">
+              <h3>پایگاه داده و پردازش وظایف</h3>
+              <div class="tag-list">
+                <span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Celery</span>
+              </div>
+            </div>
+            <div class="skill-block">
+              <h3>توسعه اپلیکیشن موبایل</h3>
+              <div class="tag-list">
+                <span class="tag">Flutter</span><span class="tag">BLoC</span><span class="tag">Cubit</span>
+              </div>
+            </div>
+            <div class="skill-block">
+              <h3>ابزارها و تکنیک‌ها</h3>
+              <div class="tag-list">
+                <span class="tag">Git</span><span class="tag">Docker</span><span class="tag">Web Scraping</span>
+              </div>
+            </div>
+          </section>
 
+          <div class="side-divider"></div>
 
-<li>
-🌱 Improving skills in
-<strong>System Design, DevOps, and scalable architectures</strong>
-</li>
+          <section class="section" aria-labelledby="profile-heading">
+            <h2 class="section-heading" id="profile-heading">
+              <span class="heading-icon" aria-hidden="true">◎</span>
+              <span>اطلاعات تکمیلی</span>
+            </h2>
+            <dl class="facts">
+              <div class="fact">
+                <dt>تمرکز اصلی</dt>
+                <dd>توسعه بک‌اند و API</dd>
+              </div>
+              <div class="fact">
+                <dt>توسعه موبایل</dt>
+                <dd>Flutter · سطح متوسط</dd>
+              </div>
+              <div class="fact">
+                <dt>زبان انگلیسی</dt>
+                <dd>مقدماتی</dd>
+              </div>
+              <div class="fact">
+                <dt>محل سکونت</dt>
+                <dd class="normal">اردبیل؛ امکان حضور در تهران</dd>
+              </div>
+              <div class="fact">
+                <dt>حوزه‌های کاری</dt>
+                <dd class="normal">بک‌اند، API، وب‌اسکرپینگ و اپلیکیشن موبایل</dd>
+              </div>
+            </dl>
+          </section>
 
+          <div class="side-divider"></div>
 
-<li>
-⚡ Interested in clean architecture and performance optimization
-</li>
+          <section class="section" aria-labelledby="links-heading">
+            <h2 class="section-heading" id="links-heading">
+              <span class="heading-icon" aria-hidden="true">↗</span>
+              <span>پیوندهای حرفه‌ای</span>
+            </h2>
+            <div class="link-list">
+              <div class="link-card">
+                <span class="link-mark" aria-hidden="true">GH</span>
+                <a href="https://github.com/saeidjeddi" target="_blank" rel="noopener noreferrer">
+                  <strong>پروفایل GitHub</strong>
+                  <small>github.com/saeidjeddi</small>
+                </a>
+              </div>
+              <div class="link-card">
+                <span class="link-mark" aria-hidden="true">API</span>
+                <a href="https://github.com/saeidjeddi/VeloShop-web" target="_blank" rel="noopener noreferrer">
+                  <strong>VeloShop Web</strong>
+                  <small>مخزن پروژه</small>
+                </a>
+              </div>
+              <div class="link-card">
+                <span class="link-mark" aria-hidden="true">APP</span>
+                <a href="https://github.com/saeidjeddi/VeloShop-platform" target="_blank" rel="noopener noreferrer">
+                  <strong>VeloShop Platform</strong>
+                  <small>مخزن پروژه</small>
+                </a>
+              </div>
+              <div class="link-card">
+                <span class="link-mark" aria-hidden="true">BE</span>
+                <a href="https://github.com/saeidjeddi/didar-movie-backend" target="_blank" rel="noopener noreferrer">
+                  <strong>Didar Movie Backend</strong>
+                  <small>مخزن پروژه</small>
+                </a>
+              </div>
+            </div>
+          </section>
+        </aside>
+      </div>
 
-
-<li>
-🐧 Linux user and open-source enthusiast
-</li>
-
-
-<li>
-💡 Passionate about Backend Engineering, Mobile Development and Automation
-</li>
-
-
-</ul>
-
-</div>
-
-</section>
-
-
-<section>
-
-<h2 class="title">
-🚀 Tech Stack
-</h2>
-
-
-<div class="skills">
-
-<span>Python</span>
-<span>Django</span>
-<span>Django REST Framework</span>
-<span>Flutter</span>
-<span>Dart</span>
-<span>Celery</span>
-<span>PostgreSQL</span>
-<span>Redis</span>
-<span>Docker</span>
-<span>Linux</span>
-<span>Nginx</span>
-<span>Git</span>
-
-</div>
-
-</section>
-
-
-
-<section>
-
-<h2 class="title">
-📫 Connect With Me
-</h2>
-
-
-<div class="links">
-
-<a href="mailto:saeedjeddidev@gmail.com">
-✉ Email
-</a>
-
-
-<a href="https://github.com/saeidjeddi">
-💻 GitHub
-</a>
-
-
-<a href="https://x.com/SaeidJeddi">
-𝕏 X
-</a>
-
-
-<a href="https://t.me/saeidjedi">
-✈ Telegram
-</a>
-
-
-</div>
-
-
-</section>
-
-
-
-<footer>
-
-<p>
-First, solve the problem. Then, write clean code.
-</p>
-
-</footer>
-
-
+      <footer class="footer">
+        <span><strong>سعید جدی</strong> · توسعه‌دهنده نرم‌افزار</span>
+        <span>برای بررسی نمونه‌کارها، به مخازن GitHub مراجعه کنید.</span>
+      </footer>
+    </article>
+  </div>
 </body>
 </html>
